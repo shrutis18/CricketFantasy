@@ -51,4 +51,17 @@ public class TeamTest {
         Team teamOne = new Team("teamOne",players);
         Assert.assertEquals(90,teamOne.getPoints());
     }
+
+    @Test
+    public void itShouldBeAbleToCalculatePointsBasedOnCatches() {
+        List<Player> players = new ArrayList<>();
+        Player playerOne = new Player("Ab devillers");
+        playerOne.setCatches(2);
+        Player playerTwo = new Player("Cris gayle");
+        playerTwo.setCatches(3);
+        players.add(playerOne);
+        players.add(playerTwo);
+        Team teamOne = new Team("teamOne",players);
+        Assert.assertEquals(50,teamOne.getPoints());
+    }
 }

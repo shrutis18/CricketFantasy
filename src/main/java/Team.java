@@ -21,7 +21,15 @@ public class Team {
     }
 
     private int calculatePoints() {
-       return players.stream().filter(player -> player.getRunsScored()>0).mapToInt(player -> (player.getRunsScored() / 15 - 1) * 5 + player.getRunsScored()).sum();
+        return calculatePointsBasedOnRuns() + calculatePointsBasedOnCatches();
+    }
+
+    private int calculatePointsBasedOnRuns() {
+        return players.stream().filter(player -> player.getRunsScored()>0).mapToInt(player -> (player.getRunsScored() / 15 - 1) * 5 + player.getRunsScored()).sum();
+    }
+
+    private int calculatePointsBasedOnCatches() {
+        return players.stream().filter(player -> player.getCatches()>0).mapToInt(player -> player.getCatches() * 10).sum();
     }
 
 

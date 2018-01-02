@@ -23,4 +23,19 @@ public class PlayerTest {
         playerOne.setRunsScored(40);
         Assert.assertEquals(40, playerOne.getRunsScored());
     }
+
+    @Test
+    public void itShouldHaveZeroCatchesWhenCreated() {
+        String playerOneName = "Yuvraj Singh";
+        Player playerOne = new Player(playerOneName);
+        Assert.assertEquals(0,playerOne.getCatches());
+    }
+
+    @Test
+    public void itShouldBeAbleToTakeCatches() {
+        String playerOneName = "Yuvraj Singh";
+        Player playerOne = new Player(playerOneName);
+        playerOne.setCatches(2);
+        Assert.assertEquals(2,playerOne.getCatches());
+    }
 }
