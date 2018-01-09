@@ -7,12 +7,12 @@ import java.util.List;
 public class TeamTest {
 
     @Test
-    public void itShouldHaveAName(){
+    public void itShouldHaveAName(){ /////TODO make batsman of type player
         List<Player> players = new ArrayList<>();
-        Player playerOne = new Player("Ab devillers");
-        Player playerTwo = new Player("Cris gayle");
-        players.add(playerOne);
-        players.add(playerTwo);
+        Batsman aBatsman = new Batsman("Yuvi");
+        AllRounder anAllRounder = new AllRounder("Bumrah");
+        players.add(aBatsman);
+        players.add(anAllRounder);
         Team teamOne = new Team("teamOne",players);
         Assert.assertEquals("teamOne",teamOne.getTeamName());
     }
@@ -20,48 +20,38 @@ public class TeamTest {
     @Test
     public void itShouldHaveAListOfPlayers() {
         List<Player> players = new ArrayList<>();
-        Player playerOne = new Player("Ab devillers");
-        Player playerTwo = new Player("Cris gayle");
-        players.add(playerOne);
-        players.add(playerTwo);
+        Batsman aBatsman = new Batsman("Ab devillers");
+        AllRounder anAllRounder = new AllRounder("Cris gayle");
+        players.add(aBatsman);
+        players.add(anAllRounder);
         Team teamOne = new Team("teamOne",players);
         Assert.assertEquals(2,teamOne.getPlayers().size());
     }
-
+//
     @Test
     public void itShouldHaveZeroPointsInitially() {
         List<Player> players = new ArrayList<>();
-        Player playerOne = new Player("Ab devillers");
-        Player playerTwo = new Player("Cris gayle");
-        players.add(playerOne);
-        players.add(playerTwo);
+        Batsman aBatsman = new Batsman("Ab devillers");
+        AllRounder anAllRounder = new AllRounder("Cris gayle");
+        players.add(aBatsman);
+        players.add(anAllRounder);
         Team teamOne = new Team("teamOne",players);
         Assert.assertEquals(0,teamOne.getPoints());
     }
 
     @Test
-    public void itShouldBeAbleToCalculatePointsBasedOnRunsScored() {
+    public void itShouldBeAbleToCalculateItsPoints() {
         List<Player> players = new ArrayList<>();
-        Player playerOne = new Player("Ab devillers");
-        playerOne.setRunsScored(45);
-        Player playerTwo = new Player("Cris gayle");
-        playerTwo.setRunsScored(30);
-        players.add(playerOne);
-        players.add(playerTwo);
+        Player aBatsman = new Batsman("Ab devillers");
+        aBatsman.setRunsScored(35);
+        aBatsman.setCatches(2);
+        Player anAllRounder = new AllRounder("Cris gayle");
+        anAllRounder.setRunsScored(35);
+        anAllRounder.setCatches(2);
+        players.add(aBatsman);
+        players.add(anAllRounder);
         Team teamOne = new Team("teamOne",players);
-        Assert.assertEquals(90,teamOne.getPoints());
+        Assert.assertEquals(179,teamOne.getPoints());
     }
 
-    @Test
-    public void itShouldBeAbleToCalculatePointsBasedOnCatches() {
-        List<Player> players = new ArrayList<>();
-        Player playerOne = new Player("Ab devillers");
-        playerOne.setCatches(2);
-        Player playerTwo = new Player("Cris gayle");
-        playerTwo.setCatches(3);
-        players.add(playerOne);
-        players.add(playerTwo);
-        Team teamOne = new Team("teamOne",players);
-        Assert.assertEquals(50,teamOne.getPoints());
-    }
 }

@@ -10,21 +10,21 @@ public class GameTest {
         Game game = new Game();
 
         List<Player> playersTeamOne = new ArrayList<>();
-        Player playerOne = new Player("Ab devillers");
-        playerOne.setRunsScored(30);
-        Player playerTwo = new Player("Cris gayle");
-        playerTwo.setRunsScored(30);
-        playersTeamOne.add(playerOne);
-        playersTeamOne.add(playerTwo);
+        Player aBatsman = new Batsman("Ab devillers");
+        aBatsman.setRunsScored(30);
+        Player anAllRounder = new AllRounder("Cris gayle");
+        anAllRounder.setRunsScored(30);
+        playersTeamOne.add(aBatsman);
+        playersTeamOne.add(anAllRounder);
         Team teamOne = new Team("teamOne",playersTeamOne);
 
         List<Player> playersTeamTwo = new ArrayList<>();
-        Player playerThree = new Player("Sachin Tendulkar");
-        playerThree.setRunsScored(20);
-        Player playerFour = new Player("Rohit Sharma");
-        playerFour.setRunsScored(20);
-        playersTeamTwo.add(playerThree);
-        playersTeamTwo.add(playerFour);
+        Player anotherBatsman = new Batsman("Sachin Tendulkar");
+        anotherBatsman.setRunsScored(20);
+        Player anotherAllRounder = new AllRounder("Rohit Sharma");
+        anotherAllRounder.setRunsScored(20);
+        playersTeamTwo.add(anotherBatsman);
+        playersTeamTwo.add(anotherAllRounder);
         Team teamTwo = new Team("teamTwo",playersTeamTwo);
 
         game.addTeam(teamOne);
@@ -38,29 +38,28 @@ public class GameTest {
         Game game = new Game();
 
         List<Player> playersTeamOne = new ArrayList<>();
-        Player playerOne = new Player("Ab devillers");
-        playerOne.setRunsScored(30);
-        Player playerTwo = new Player("Cris gayle");
-        playerTwo.setRunsScored(30);
-        playersTeamOne.add(playerOne);
-        playersTeamOne.add(playerTwo);
+        Player aBatsman = new Batsman("Ab devillers");
+        aBatsman.setRunsScored(30);
+        Player anAllRounder = new AllRounder("Cris gayle");
+        anAllRounder.setRunsScored(30);
+        anAllRounder.setCatches(1);
+        playersTeamOne.add(aBatsman);
+        playersTeamOne.add(anAllRounder);
         Team teamOne = new Team("teamOne",playersTeamOne);
 
         List<Player> playersTeamTwo = new ArrayList<>();
-        Player playerThree = new Player("Sachin Tendulkar");
-        playerThree.setRunsScored(20);
-        Player playerFour = new Player("Rohit Sharma");
-        playerFour.setRunsScored(20);
-        playersTeamTwo.add(playerThree);
-        playersTeamTwo.add(playerFour);
+        Player anotherBatsman = new Batsman("Sachin Tendulkar");
+        anotherBatsman.setRunsScored(20);
+        Player anotherAllRounder = new AllRounder("Rohit Sharma");
+        anotherAllRounder.setRunsScored(20);
+        playersTeamTwo.add(anotherBatsman);
+        playersTeamTwo.add(anotherAllRounder);
         Team teamTwo = new Team("teamTwo",playersTeamTwo);
 
         game.addTeam(teamOne);
         game.addTeam(teamTwo);
 
         Assert.assertEquals("teamOne",game.decideWinner());
-
-
 
     }
 }
