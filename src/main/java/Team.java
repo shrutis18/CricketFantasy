@@ -5,17 +5,15 @@ public class Team {
     private int points;
 
     private final List<Player> players;
-    private Player powerPlayer;
 
     public List<Player> getPlayers() {
         return players;
     }
 
-    public Team(String teamName, List<Player> players, Player powerPlayer) {
+    public Team(String teamName, List<Player> players) {
         this.teamName = teamName;
         this.players = players;
         this.points = 0;
-        this.powerPlayer = powerPlayer;
     }
 
     public int getPoints() {
@@ -23,16 +21,10 @@ public class Team {
     }
 
     private int calculatePoints() {
-
-        return players.stream().filter(player -> player.getName() != powerPlayer.getName()).mapToInt(player -> player.calculatePoints()).sum()
-                + powerPlayer.calculatePoints() * 2;
+       return players.stream().mapToInt(player -> player.calculatePoints()).sum();
     }
 
     public String getTeamName() {
         return teamName;
-    }
-
-    public Player getPowerPlayer() {
-        return powerPlayer;
     }
 }
