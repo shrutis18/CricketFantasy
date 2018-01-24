@@ -13,7 +13,7 @@ public class TeamTest {
         AllRounder anAllRounder = new AllRounder("Bumrah");
         players.add(aBatsman);
         players.add(anAllRounder);
-        Team teamOne = new Team("teamOne",players);
+        Team teamOne = new Team("teamOne",players, aBatsman);
         Assert.assertEquals("teamOne",teamOne.getTeamName());
     }
 
@@ -24,7 +24,7 @@ public class TeamTest {
         AllRounder anAllRounder = new AllRounder("Cris gayle");
         players.add(aBatsman);
         players.add(anAllRounder);
-        Team teamOne = new Team("teamOne",players);
+        Team teamOne = new Team("teamOne",players, aBatsman);
         Assert.assertEquals(2,teamOne.getPlayers().size());
     }
 //
@@ -35,7 +35,7 @@ public class TeamTest {
         AllRounder anAllRounder = new AllRounder("Cris gayle");
         players.add(aBatsman);
         players.add(anAllRounder);
-        Team teamOne = new Team("teamOne",players);
+        Team teamOne = new Team("teamOne",players, aBatsman);
         Assert.assertEquals(0,teamOne.getPoints());
     }
 
@@ -50,8 +50,23 @@ public class TeamTest {
         anAllRounder.setCatches(2);
         players.add(aBatsman);
         players.add(anAllRounder);
-        Team teamOne = new Team("teamOne",players);
-        Assert.assertEquals(179,teamOne.getPoints());
+        Team teamOne = new Team("teamOne",players, aBatsman);
+        Assert.assertEquals(284,teamOne.getPoints());
+    }
+
+    @Test
+    public void itShouldHaveAPowerPlayer() {
+        //given
+        List<Player> players = new ArrayList<>();
+        Player aBatsman = new Batsman("Ab devillers");
+        Player anAllRounder = new AllRounder("Cris gayle");
+        players.add(aBatsman);
+        players.add(anAllRounder);
+        //when
+        Team team = new Team ("team1", players, aBatsman);
+        //then
+        Assert.assertEquals(aBatsman,team.getPowerPlayer());
+
     }
 
 }

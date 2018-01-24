@@ -16,7 +16,7 @@ public class GameTest {
         anAllRounder.setRunsScored(30);
         playersTeamOne.add(aBatsman);
         playersTeamOne.add(anAllRounder);
-        Team teamOne = new Team("teamOne",playersTeamOne);
+        Team teamOne = new Team("teamOne",playersTeamOne, aBatsman);
 
         List<Player> playersTeamTwo = new ArrayList<>();
         Player anotherBatsman = new Batsman("Sachin Tendulkar");
@@ -25,7 +25,7 @@ public class GameTest {
         anotherAllRounder.setRunsScored(20);
         playersTeamTwo.add(anotherBatsman);
         playersTeamTwo.add(anotherAllRounder);
-        Team teamTwo = new Team("teamTwo",playersTeamTwo);
+        Team teamTwo = new Team("teamTwo",playersTeamTwo, aBatsman);
 
         game.addTeam(teamOne);
         game.addTeam(teamTwo);
@@ -45,7 +45,7 @@ public class GameTest {
         anAllRounder.setCatches(1);
         playersTeamOne.add(aBatsman);
         playersTeamOne.add(anAllRounder);
-        Team teamOne = new Team("teamOne",playersTeamOne);
+        Team teamOne = new Team("teamOne",playersTeamOne, aBatsman);
 
         List<Player> playersTeamTwo = new ArrayList<>();
         Player anotherBatsman = new Batsman("Sachin Tendulkar");
@@ -54,7 +54,7 @@ public class GameTest {
         anotherAllRounder.setRunsScored(20);
         playersTeamTwo.add(anotherBatsman);
         playersTeamTwo.add(anotherAllRounder);
-        Team teamTwo = new Team("teamTwo",playersTeamTwo);
+        Team teamTwo = new Team("teamTwo",playersTeamTwo, anotherBatsman);
 
         game.addTeam(teamOne);
         game.addTeam(teamTwo);
